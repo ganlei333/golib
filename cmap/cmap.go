@@ -12,6 +12,8 @@ var ShardCount = 32
 const prime32 = uint32(16777619)
 const hash32 = uint32(2166136261)
 
+var json = jsoniter.ConfigCompatibleWithStandardLibrary
+
 //ConcurrentMap 类型的“线程”安全映射任何东西。
 //为了避免锁定瓶颈，该映射被划分为几个（ShardCount）个贴图碎片。
 type ConcurrentMap []*ConcurrentMapShared
@@ -295,8 +297,6 @@ func (m ConcurrentMap) Keys() []string {
 	}
 	return keys
 }
-
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 //MarshalJSON 转json 字符切片
 func (m ConcurrentMap) MarshalJSON() ([]byte, error) {

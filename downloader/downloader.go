@@ -200,7 +200,6 @@ func (f *FileDl) downloadBlock(id int) error {
 		}
 	}
 
-	return nil
 }
 
 func (f *FileDl) startGetSpeeds() {
